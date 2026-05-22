@@ -1172,3 +1172,156 @@ select.form-input {
   max-width: 350px;
   line-height: 1.5;
 }
+
+/* ========================================== */
+/* Mobile Responsiveness Improvements         */
+/* ========================================== */
+
+/* Mobile Sidebar Toggle Button */
+.mobile-toggle {
+  display: none;
+  position: fixed;
+  top: 1.25rem;
+  left: 1.25rem;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-sidebar);
+  border: 1px solid rgba(0, 242, 254, 0.25);
+  color: var(--color-primary);
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 242, 254, 0.1);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-toggle:hover {
+  background: rgba(28, 19, 53, 0.9);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  transform: scale(1.05);
+}
+
+.mobile-toggle:active {
+  transform: scale(0.95);
+}
+
+/* Mobile Sidebar Overlay */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(3, 1, 7, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 997;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.sidebar-overlay.open {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Media Queries for Responsive Layouts */
+@media (max-width: 768px) {
+  .mobile-toggle {
+    display: flex; /* Show on mobile */
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -100%; /* Hidden off-screen */
+    width: 290px;
+    border-radius: 0 24px 24px 0;
+    border: none;
+    border-right: 1px solid rgba(0, 242, 254, 0.2);
+    z-index: 998;
+    margin: 0;
+    box-shadow: 25px 0 50px rgba(0, 0, 0, 0.8);
+    transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .sidebar.open {
+    left: 0; /* Slide in */
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+    padding: 1.5rem !important;
+    padding-top: 5.5rem !important; /* Space for the floating button */
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .page-header .btn {
+    width: 100%; /* Make action buttons full width on small screens */
+  }
+
+  .page-title {
+    font-size: 1.85rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr; /* Stack dashboard statistics cards */
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .dashboard-sections {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+  }
+
+  /* Keep table horizontally scrollable but clean */
+  .team-table th, .team-table td {
+    padding: 1rem 1.2rem;
+    white-space: nowrap; /* Prevent ugly wrap */
+  }
+
+  .modal-content {
+    padding: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 1rem !important;
+    padding-top: 5rem !important;
+  }
+
+  .glass-card {
+    padding: 1.25rem;
+  }
+
+  .page-title {
+    font-size: 1.65rem;
+  }
+
+  .auth-card {
+    padding: 2rem 1.5rem;
+  }
+
+  /* Stack dual select form fields on mobile */
+  .form-group[style*="gridTemplateColumns"] {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+}
