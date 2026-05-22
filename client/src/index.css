@@ -1177,6 +1177,11 @@ select.form-input {
 /* Mobile Responsiveness Improvements         */
 /* ========================================== */
 
+/* Desktop hide Close Button */
+.sidebar-close-btn {
+  display: none;
+}
+
 /* Mobile Sidebar Toggle Button */
 .mobile-toggle {
   display: none;
@@ -1233,17 +1238,43 @@ select.form-input {
   pointer-events: auto;
 }
 
-/* Media Queries for Responsive Layouts */
-@media (max-width: 768px) {
+/* Media Queries for Responsive Layouts (Covers Mobiles and Tablets <= 1024px) */
+@media (max-width: 1024px) {
   .mobile-toggle {
-    display: flex; /* Show on mobile */
+    display: flex; /* Show on mobile/tablet */
+  }
+
+  /* Style Close Button inside Sidebar */
+  .sidebar-close-btn {
+    display: flex;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 242, 254, 0.2);
+    color: var(--color-primary);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.2s ease;
+  }
+
+  .sidebar-close-btn:hover {
+    background: rgba(255, 42, 95, 0.15);
+    border-color: var(--color-overdue);
+    color: var(--color-overdue);
+    box-shadow: 0 0 10px rgba(255, 42, 95, 0.3);
   }
 
   .sidebar {
     position: fixed;
     top: 0;
     bottom: 0;
-    left: -100%; /* Hidden off-screen */
+    left: -100% !important; /* Hidden off-screen by default on <= 1024px */
     width: 290px;
     border-radius: 0 24px 24px 0;
     border: none;
@@ -1255,7 +1286,7 @@ select.form-input {
   }
 
   .sidebar.open {
-    left: 0; /* Slide in */
+    left: 0 !important; /* Slide in */
   }
 
   .main-content {

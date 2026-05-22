@@ -47,6 +47,15 @@ const Sidebar = () => {
       ></div>
 
       <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
+        {/* Close button for Mobile/Tablet */}
+        <button 
+          className="sidebar-close-btn" 
+          onClick={() => setIsOpen(false)}
+          aria-label="Close Sidebar"
+        >
+          <X size={20} />
+        </button>
+
         <div className="sidebar-brand">
           <FolderLock className="brand-icon" size={28} />
           <h2>TaskFlow</h2>
