@@ -115,6 +115,8 @@ button, input, select, textarea {
     linear-gradient(to right, rgba(0, 0, 0, 0.18) 4px, transparent 4px),
     linear-gradient(to bottom, rgba(0, 0, 0, 0.18) 4px, transparent 4px);
   background-size: 32px 32px;
+  max-width: 100%;
+  overflow-x: hidden; /* No global page horizontal scroll */
 }
 
 .main-content {
@@ -123,6 +125,8 @@ button, input, select, textarea {
   padding: 3rem;
   transition: all 0.2s ease;
   min-width: 0;
+  max-width: 100%;
+  overflow-x: hidden; /* Prevent horizontal content clipping page scroll */
 }
 
 @media (max-width: 1200px) {
@@ -810,24 +814,15 @@ select.form-input {
   box-shadow: inset -2px -2px 0px #601414, inset 2px 2px 0px #e03c3c !important;
 }
 
-/* Kanban Task Board Custom Design */
+/* Kanban Task Board Custom Design - Horizontal scrolling row */
 .task-board {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex !important;
+  flex-direction: row !important;
   gap: 1.5rem;
   align-items: start;
-}
-
-@media (max-width: 1300px) {
-  .task-board {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 680px) {
-  .task-board {
-    grid-template-columns: 1fr;
-  }
+  overflow-x: auto !important;
+  padding-bottom: 1.5rem;
+  width: 100%;
 }
 
 .board-column {
@@ -837,6 +832,8 @@ select.form-input {
   padding: 1.5rem;
   min-height: 650px;
   box-shadow: inset -4px -4px 0px #1d1d1a, inset 4px 4px 0px #575753, 6px 6px 0px rgba(0, 0, 0, 0.4) !important;
+  flex: 1 1 280px !important;
+  min-width: 280px !important;
 }
 
 .board-column-header {
