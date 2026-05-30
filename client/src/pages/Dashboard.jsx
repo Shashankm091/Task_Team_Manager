@@ -106,7 +106,7 @@ const Dashboard = () => {
             <h3>Total Tasks</h3>
             <p>{summary.totalTasks}</p>
           </div>
-          <div className="stat-icon-box primary" style={{ color: 'var(--color-accent)', background: 'rgba(168, 85, 247, 0.15)' }}>
+          <div className="stat-icon-box warning">
             <CheckSquare size={24} />
           </div>
         </div>
@@ -176,17 +176,20 @@ const Dashboard = () => {
               </h3>
               
               {/* Task filters */}
-              <div style={{ display: 'flex', gap: '0.5rem', background: 'rgba(255,255,255,0.03)', padding: '0.25rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)' }}>
+              <div style={{ display: 'flex', gap: '0.5rem', background: '#121212', padding: '0.4rem', border: '4px solid #000' }}>
                 {['All', 'My Tasks', 'Overdue'].map((filter) => (
                   <button
                     key={filter}
                     className="btn"
                     style={{
-                      padding: '0.35rem 0.75rem',
-                      fontSize: '0.8rem',
-                      background: taskFilter === filter ? 'rgba(99, 102, 241, 0.15)' : 'transparent',
-                      color: taskFilter === filter ? 'var(--color-text-main)' : 'var(--color-text-muted)',
-                      border: taskFilter === filter ? '1px solid rgba(99, 102, 241, 0.2)' : 'none',
+                      padding: '0.5rem 1rem',
+                      fontSize: '0.85rem',
+                      background: taskFilter === filter ? '#5B8731' : '#7a7a7a',
+                      color: '#fff',
+                      border: '3px solid #000',
+                      boxShadow: taskFilter === filter 
+                        ? 'inset -2px -2px 0px #354e1d, inset 2px 2px 0px #82bf45' 
+                        : 'inset -2px -2px 0px #4a4a4a, inset 2px 2px 0px #aeaeae',
                     }}
                     onClick={() => setTaskFilter(filter)}
                   >

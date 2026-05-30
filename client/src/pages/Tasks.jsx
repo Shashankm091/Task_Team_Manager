@@ -291,7 +291,7 @@ const Tasks = () => {
                           <span style={{ fontSize: '0.7rem', color: 'var(--color-text-dim)', display: 'block', marginBottom: '0.2rem' }}>Update Status</span>
                           <select
                             className="form-input"
-                            style={{ padding: '0.25rem 0.5rem', fontSize: '0.75rem', height: 'auto', background: 'rgba(255,255,255,0.03)' }}
+                            style={{ padding: '0.25rem 0.5rem', fontSize: '1.15rem', height: 'auto', background: '#121212', border: '3px solid #000', borderRadius: '0px' }}
                             value={task.status}
                             onChange={(e) => handleUpdateStatus(task._id, e.target.value)}
                           >

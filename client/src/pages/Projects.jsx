@@ -414,13 +414,13 @@ const Projects = () => {
                   {selectedProject.members?.map((member) => (
                     <div 
                       key={member._id} 
-                      style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.5rem', background: 'rgba(255,255,255,0.02)', borderRadius: '6px', border: '1px solid rgba(255,255,255,0.05)' }}
+                      style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.6rem 1rem', background: '#2d2d2a', border: '3px solid #000', borderRadius: '0px', boxShadow: 'inset -2px -2px 0px #1d1d1a, inset 2px 2px 0px #575753' }}
                     >
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                         <div className="assignee-avatar" style={{ width: '24px', height: '24px', fontSize: '0.7rem' }}>
                           {getInitials(member.name)}
                         </div>
-                        <span style={{ fontSize: '0.9rem' }}>{member.name} ({member.role})</span>
+                        <span style={{ fontSize: '1.25rem', fontFamily: 'var(--font-body)' }}>{member.name} ({member.role})</span>
                       </div>
                       <button 
                         className="btn-icon delete" 
@@ -433,7 +433,7 @@ const Projects = () => {
                     </div>
                   ))}
                   {(!selectedProject.members || selectedProject.members.length === 0) && (
-                    <span style={{ fontSize: '0.85rem', color: 'var(--color-text-dim)' }}>No members assigned yet.</span>
+                    <span style={{ fontSize: '1.25rem', fontFamily: 'var(--font-body)', color: 'var(--color-text-dim)' }}>No members assigned yet.</span>
                   )}
                 </div>
               </div>
@@ -447,9 +447,9 @@ const Projects = () => {
                     .map((availUser) => (
                       <div 
                         key={availUser._id} 
-                        style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.5rem', background: 'rgba(255,255,255,0.01)', borderRadius: '6px' }}
+                        style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.6rem 1rem', background: '#2d2d2a', border: '3px solid #000', borderRadius: '0px', boxShadow: 'inset -2px -2px 0px #1d1d1a, inset 2px 2px 0px #575753' }}
                       >
-                        <span style={{ fontSize: '0.9rem' }}>{availUser.name} ({availUser.role})</span>
+                        <span style={{ fontSize: '1.25rem', fontFamily: 'var(--font-body)' }}>{availUser.name} ({availUser.role})</span>
                         <button 
                           className="btn-icon" 
                           onClick={() => handleAddMember(availUser._id)}
