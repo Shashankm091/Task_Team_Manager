@@ -121,32 +121,30 @@ button, input, select, textarea {
 
 .main-content {
   flex-grow: 1;
-  margin-left: calc(var(--sidebar-width) + 3rem);
+  margin-left: 0 !important; /* Lock margins to prevent horizontal shifting */
   padding: 3rem;
+  padding-left: calc(var(--sidebar-width) + 6rem); /* Perfectly offset content to clear fixed sidebar */
   transition: all 0.2s ease;
   min-width: 0;
-  max-width: 100%;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
   overflow-x: hidden; /* Prevent horizontal content clipping page scroll */
 }
 
 @media (max-width: 1200px) {
   .main-content {
     padding: 2.5rem;
+    padding-left: calc(var(--sidebar-width) + 5rem);
   }
 }
 
 @media (max-width: 1024px) {
   .main-content {
-    margin-left: calc(var(--sidebar-collapsed-width) + 2rem);
-    padding: 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .main-content {
-    margin-left: 0;
-    padding: 1.5rem;
-    padding-top: calc(var(--header-height) + 2rem);
+    margin-left: 0 !important;
+    padding: 1.5rem !important;
+    padding-top: 5.5rem !important; /* Space for the floating mobile toggle */
+    width: 100% !important;
   }
 }
 
